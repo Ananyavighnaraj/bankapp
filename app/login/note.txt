@@ -19,4 +19,9 @@ methods
         1.2.2 event binding using  $event   (eventname)="methodname($event)"
                               (when an event happens we can access data )  
         1.2.3 event binding using template rendering variable      #variable
-        
+
+2- Two way binding
+
+    2.1 ngmodel   -inbuild within FormsModule 
+                                    [(ngmodel)]="value
+                                    FormsModule     ----done in app.module.ts   
