@@ -1,11 +1,12 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
-export class LoginComponent {
+export class LoginComponent  {
 aim="YOUR PERFECT BANKING PARTNER"
   data="enter acc number"
   acno=''
@@ -18,6 +19,9 @@ aim="YOUR PERFECT BANKING PARTNER"
     1003:{acno:1003,username:"mega",password:123,balance:0}
   }
 
+ constructor(private router:Router){}
+ 
+
 login(){   //  for method 1.2.2
   var acno=this.acno
   var psw=this.psw
@@ -26,6 +30,7 @@ login(){   //  for method 1.2.2
   if(acno in userDetails){
     if(psw==userDetails[acno]["password"]){
     alert('login success')
+    this.router.navigateByUrl('dashboard')
   }
   else{
     alert('incorrect password')

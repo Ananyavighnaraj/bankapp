@@ -25,3 +25,22 @@ methods
     2.1 ngmodel   -inbuild within FormsModule 
                                     [(ngmodel)]="value
                                     FormsModule     ----done in app.module.ts   
+
+Redirection in angular--
+----------------------
+
+navigateByUrl   -method used to Redirection
+        -Router   -its predefined class
+        -AppRoutingModule -module  (already in ts)
+
+Dependency injection
+---------------------
+    to call a method in one class to another class
+    done in (or injected ) in constructor
+
+
+Angular Services
+-----------------
+all components can access
+     ng g s servicename 
+        eg:- ng g s data 
