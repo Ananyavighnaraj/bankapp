@@ -28,4 +28,61 @@ export class DataService {
       return true
     }
   }
+
+
+login(acno:any,psw:any){   
+ 
+  var userDetails=this.userDetails
+
+  if(acno in userDetails){
+    if(psw==userDetails[acno]['password']){
+    return true
+  }
+  else{
+    return false
+  }
 }
+  else{
+   return false
+  }
+}
+
+deposit(acno:any,password:any,amount:any){
+  var userDetails=this.userDetails
+  var amnt=parseInt(amount)   //balance is in string form to convert it we are using parseint
+  if(acno in userDetails){
+    if(password==userDetails[acno]['password']){
+      userDetails[acno]["balance"]+=amnt
+      return userDetails[acno]["balance"]    //returning to show in alert
+    }
+    else{
+      return false
+    }
+  }
+  else{
+    return false
+  }
+  
+}
+
+
+withdraw(acno:any,password:any,amount:any){
+  var userDetails=this.userDetails
+  var amnt=parseInt(amount)   //balance is in string form to convert it we are using parseint
+  if(acno in userDetails){
+    if(password==userDetails[acno]['password']){
+      userDetails[acno]["balance"]+=amnt
+      return userDetails[acno]["balance"]    //returning to show in alert
+    }
+    else{
+      return false
+    }
+  }
+  else{
+    return false
+  }
+  
+}
+
+}
+

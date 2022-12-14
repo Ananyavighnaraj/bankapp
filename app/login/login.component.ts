@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { DataService } from '../services/data.service';
 
 @Component({
   selector: 'app-login',
@@ -19,29 +20,28 @@ aim="YOUR PERFECT BANKING PARTNER"
     1003:{acno:1003,username:"mega",password:123,balance:0}
   }
 
- constructor(private router:Router){}
+ constructor(private router:Router,private ds:DataService){}
  
+ ngOnInit():void{
+  
+ }
 
 login(){   //  for method 1.2.2
   var acno=this.acno
   var psw=this.psw
-  var userDetails=this.userDetails
 
-  if(acno in userDetails){
-    if(psw==userDetails[acno]["password"]){
+  const result=this.ds.login(acno,psw)
+  if(result){
     alert('login success')
     this.router.navigateByUrl('dashboard')
   }
   else{
-    alert('incorrect password')
+    alert('incorrect username or password')
   }
 }
-  else{
-    alert('incorrect username')
-  }
- // alert('login clicked')
 }
-}
+
+
 
 // login(a:any,b:any){     //for method 1.2.3   provide any name for arguments as that is passed on html 
 //   this.acno=a.value
